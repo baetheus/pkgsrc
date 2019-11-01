@@ -1,0 +1,9 @@
+===========================================================================
+$NetBSD$
+
+To configure mysqld_exporter adjust the environment variables in:
+
+	${PKG_SYSCONFDIR}/env.conf
+
+Ensure this file retains appropriately secure permissions.
+===========================================================================

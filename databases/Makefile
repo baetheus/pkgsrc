@@ -114,6 +114,7 @@ SUBDIR+=	mysql57-client
 SUBDIR+=	mysql57-server
 SUBDIR+=	mysql80-client
 SUBDIR+=	mysql80-server
+SUBDIR+=	mysqld_exporter
 SUBDIR+=	mysqltuner
 SUBDIR+=	mytop
 SUBDIR+=	nss-pgsql
