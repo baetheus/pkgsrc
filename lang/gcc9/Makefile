@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.8 2020/01/25 20:31:39 rillig Exp $
+# $NetBSD: Makefile,v 1.12 2020/01/28 21:33:39 rillig Exp $
 
 GCC9_VERSION=	9.2.0
 
@@ -9,7 +9,7 @@ CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GNU:=gcc/gcc-${GCC9_VERSION}/}
 EXTRACT_SUFX=	.tar.xz
 
-MAINTAINER=	pkgsrc-users@NetBSD.org
+MAINTAINER=	rillig@NetBSD.org
 HOMEPAGE=	https://gcc.gnu.org/
 COMMENT=	The GNU Compiler Collection (GCC) - Release 9 Series
 LICENSE=	gnu-gpl-v2 AND gnu-gpl-v3 AND gnu-lgpl-v2 AND gnu-lgpl-v3
@@ -33,6 +33,7 @@ GNU_CONFIGURE_PREFIX=	${GCC9_PREFIX}
 INFO_FILES=		yes
 CONFIGURE_ARGS+=	--disable-libstdcxx-pch
 CONFIGURE_ARGS+=	--with-system-zlib
+CONFIGURE_ARGS.Linux+=	--without-system-zlib # to prevent "-lz not found"
 
 UNLIMIT_RESOURCES=	datasize stacksize
 
@@ -58,11 +59,15 @@ CHECK_PORTABILITY_SKIP=	contrib/download_prerequisites
 # compute_powtab.c: In function 'mpn_compute_powtab_mul':
 # compute_powtab.c:142:3: error: 'for' loop initial declarations are only allowed in C99 mode
 #    for (long pi = start_idx; pi >= 0; pi--)
-#NOT_FOR_PLATFORM+=	Linux-*-x86_64
+#BROKEN_ON_PLATFORM+=	Linux-*-x86_64
 CFLAGS.Linux+=		-std=gnu99
+# I know that -std is not a preprocessor flag, but gcc9 ignores the CFLAGS,
+# for whatever reason.
+CPPFLAGS.Linux+=	-std=gnu99
 
-# The build and target host is x86_64-sun-solaris2.11.
-# It still fails to compile some seemingly linux-specific code.
+# Even though the build and target host is x86_64-sun-solaris2.11,
+# it fails to compile some seemingly linux-specific code.
+# https://bugs.llvm.org/show_bug.cgi?id=44665
 #
 # libtool: compile:  /home/pbulk/build/lang/gcc9/work/build/./gcc/xgcc [...]
 #   -c ../../../../gcc-9.2.0/libsanitizer/sanitizer_common/sanitizer_linux.cc
@@ -71,7 +76,7 @@ CFLAGS.Linux+=		-std=gnu99
 # ../../../../gcc-9.2.0/libsanitizer/sanitizer_common/sanitizer_linux.cc:932:63: error: 'O_DIRECTORY' was not declared in this scope
 #  932 |   descriptor_ = internal_open(task_directory_path, O_RDONLY | O_DIRECTORY);
 #      |                                                               ^~~~~~~~~~~
-NOT_FOR_PLATFORM+=	SunOS-*-x86_64
+BROKEN_ON_PLATFORM+=	SunOS-*-x86_64
 
 LANGS=			c
 
