@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.239 2020/01/23 18:36:15 jnemeth Exp $
+# $NetBSD: Makefile,v 1.243 2020/02/06 09:14:25 nia Exp $
 #
 
 COMMENT=	Communication programs
@@ -20,7 +20,6 @@ SUBDIR+=	cgiirc
 SUBDIR+=	coyim
 SUBDIR+=	ctrlproxy
 SUBDIR+=	dccserver
-SUBDIR+=	dircproxy
 SUBDIR+=	eggdrop
 SUBDIR+=	ejabberd
 SUBDIR+=	ekg
@@ -68,7 +67,6 @@ SUBDIR+=	ktp-send-file
 SUBDIR+=	ktp-text-ui
 SUBDIR+=	libfolks
 SUBDIR+=	libgadu
-SUBDIR+=	libirc
 SUBDIR+=	libmsn
 SUBDIR+=	libotr
 SUBDIR+=	libpurple
@@ -83,8 +81,6 @@ SUBDIR+=	miniircd
 SUBDIR+=	mumble
 SUBDIR+=	ninja
 SUBDIR+=	p5-IRC-Utils
-SUBDIR+=	p5-Net-AIM
-SUBDIR+=	p5-Net-AOLIM
 SUBDIR+=	p5-Net-Goofey
 SUBDIR+=	p5-Net-Jabber
 SUBDIR+=	p5-POE-Component-IRC

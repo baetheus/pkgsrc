@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1 2017/06/10 16:25:11 taca Exp $
+# $NetBSD: Makefile,v 1.3 2020/02/06 01:12:32 taca Exp $
 
 DISTNAME=	rspec_junit_formatter-0.2.3
 CATEGORIES=	devel

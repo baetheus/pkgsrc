@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.3037 2020/01/25 23:13:49 wiz Exp $
+# $NetBSD: Makefile,v 1.3042 2020/02/05 13:33:44 ryoon Exp $
 #
 
 COMMENT=	Development utilities
@@ -167,6 +167,7 @@ SUBDIR+=	c++gsl
 SUBDIR+=	calltree-perl
 SUBDIR+=	capstone
 SUBDIR+=	catch
+SUBDIR+=	catch2
 SUBDIR+=	cbindgen
 SUBDIR+=	cbrowser
 SUBDIR+=	ccache
@@ -865,7 +866,6 @@ SUBDIR+=	msgpack
 SUBDIR+=	mustach
 SUBDIR+=	myrepos
 SUBDIR+=	nana
-SUBDIR+=	nant
 SUBDIR+=	nasm
 SUBDIR+=	nbpatch
 SUBDIR+=	ncc
@@ -2127,6 +2127,7 @@ SUBDIR+=	py-chai
 SUBDIR+=	py-characteristic
 SUBDIR+=	py-checker
 SUBDIR+=	py-cheetah
+SUBDIR+=	py-cheetah3
 SUBDIR+=	py-cle
 SUBDIR+=	py-click
 SUBDIR+=	py-click-log
@@ -2483,6 +2484,7 @@ SUBDIR+=	py-test-localserver
 SUBDIR+=	py-test-mock
 SUBDIR+=	py-test-pylint
 SUBDIR+=	py-test-pythonpath
+SUBDIR+=	py-test-random-order
 SUBDIR+=	py-test-randomly
 SUBDIR+=	py-test-relaxed
 SUBDIR+=	py-test-rerunfailures
@@ -2835,6 +2837,7 @@ SUBDIR+=	snappy-java10
 SUBDIR+=	sofia-sip
 SUBDIR+=	sparse
 SUBDIR+=	sparsehash
+SUBDIR+=	spdlog
 SUBDIR+=	spiff
 SUBDIR+=	spin
 SUBDIR+=	splint
