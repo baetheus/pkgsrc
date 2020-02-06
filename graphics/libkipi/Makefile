@@ -1,7 +1,6 @@
-# $NetBSD: Makefile,v 1.82 2020/01/18 21:48:13 jperkin Exp $
+# $NetBSD: Makefile,v 1.84 2020/02/02 10:41:02 markd Exp $
 
 DISTNAME=	libkipi-${KAPPSVER}
-PKGREVISION=	1
 CATEGORIES=	graphics
 
 HOMEPAGE=	https://kde.org/applications/graphics/
@@ -16,8 +15,8 @@ USE_TOOLS+=	pkg-config
 SUBST_CLASSES+=		fix-moc
 SUBST_STAGE.fix-moc=	post-configure
 SUBST_MESSAGE.fix-moc=	Cleaning up MOC includes
-SUBST_FILES.fix-moc=	_KDE_build/tests/plugins/CMakeFiles/kipiplugin_kxmlhelloworld_autogen.dir/AutogenInfo.cmake
-SUBST_SED.fix-moc=	-e 's,;${PREFIX}/include;,;,g'
+SUBST_FILES.fix-moc=	_KDE_build/tests/plugins/CMakeFiles/kipiplugin_kxmlhelloworld_autogen.dir/AutogenInfo.json
+SUBST_SED.fix-moc=	-e 's;"${PREFIX}/include",;;g'
 
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../graphics/hicolor-icon-theme/buildlink3.mk"

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.240 2020/01/29 10:51:56 nia Exp $
+# $NetBSD: Makefile,v 1.243 2020/02/06 09:14:25 nia Exp $
 #
 
 COMMENT=	Communication programs
@@ -67,7 +67,6 @@ SUBDIR+=	ktp-send-file
 SUBDIR+=	ktp-text-ui
 SUBDIR+=	libfolks
 SUBDIR+=	libgadu
-SUBDIR+=	libirc
 SUBDIR+=	libmsn
 SUBDIR+=	libotr
 SUBDIR+=	libpurple
@@ -82,8 +81,6 @@ SUBDIR+=	miniircd
 SUBDIR+=	mumble
 SUBDIR+=	ninja
 SUBDIR+=	p5-IRC-Utils
-SUBDIR+=	p5-Net-AIM
-SUBDIR+=	p5-Net-AOLIM
 SUBDIR+=	p5-Net-Goofey
 SUBDIR+=	p5-Net-Jabber
 SUBDIR+=	p5-POE-Component-IRC
