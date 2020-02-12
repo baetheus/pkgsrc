@@ -1,4 +1,4 @@
-$NetBSD: TODO,v 1.19660 2020/02/05 09:12:32 fcambus Exp $
+$NetBSD: TODO,v 1.19671 2020/02/12 15:26:20 ryoon Exp $
 
 Suggested new packages
 ======================
@@ -375,7 +375,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o GMT-5.1.1
 	o GNUMail-1.2.2
 	o Gorm-1.2.22
-	o ImageMagick-7.0.9.21
 	o JBidwatcher-2.5.6 [wants launch4j]
 	o LPRng-core-3.8.35
 	o MesaLib-19.3.2
@@ -469,7 +468,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o cal3d-0.11.0
 	o calc-2.11.10.1
 	o calcoo-2.1.0
-	o calibre-4.9.1
+	o calibre-4.10.1
 	o calligra-3.0.1 [in wip; koffice successor]
 	o cardboard-schedule-1.14c [at http://www.bright-green.com/downloads/]
 	o catdoc-1.1
@@ -608,7 +607,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o ganglia-3.7.5
 	o ganglia-webfrontend-3.7.5
 	o gap-4r4p9
-	o gbrainy-2.27
 	o gcal-4
 	o gcc-9.1
 	o gcin-1.5.5
@@ -668,7 +666,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o gnustep-gui-0.24.1
 	o gnustep-make-2.7.0
 	o gnustep-objc-1.8.1
-	o gnutls-3.6.12
 	o gobby-0.5.0
 	o gok-2.30.1
 	o golem-0.0.6
@@ -678,7 +675,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o gperiodic-3.0.2
 	o gps-6.1.1
 	o gramofile-1.6P
-	o gramps-5.1.2
 	o grantlee-5.0.0
 	o greed-4.1
 	o gromacs-5.1.2
@@ -712,6 +708,7 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o horde-5.2.9
 	o hs-cgrep-6.6.3
 	o html2wml-0.4.11
+	o http-parser-2.9.3
 	o http_load-20140814
 	o hugo-0.57.1 [needs gocloud.dev]
 	o icbirc-2.0
@@ -799,7 +796,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o libprelude-3.1.0
 	o libpreludedb-3.1.0
 	o libquantum-1.1.0 [pkg/43728, development release]
-	o libsecret-0.20.1
 	o libsigc++3-3.0.2
 	o libstree-0.4.2
 	o libtecla-1.6.3
@@ -891,7 +887,6 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o netio-1.32
 	o netramet-50
 	o newmail-1.0.2
-	o ninja-build-1.10.0
 	o ns-3.14.1
 	o ns-plugger-common-5.1.3
 	o ntop-5.0
@@ -1014,13 +1009,13 @@ For possible Perl packages updates, see http://www.NetBSD.org/~wiz/perl.html.
 	o py-pandas-1.0.0
 	o py-ptt-1.10.2
 	o py-pygit2-1.0.3
-	o py-setuptools-45.1.0 [drops python-2.x support]
+	o py-setuptools-45.2.0 [drops python-2.x support]
 	o py-simpletal-5.1
 	o py-spf-2.0.12t
 	o py-sybase-0.37
 	o py-wxWidgets-4.0.0
 	o py-yubiauth-0.3.10
-	o py-zipp-2.1.0 [drops python-2.x support]
+	o py-zipp-2.2.0 [drops python-2.x support]
 	o pythontidy-1.23
 	o qbzr-0.23.2
 	o qlandkartegt-1.8.1 [pkg/53376]
