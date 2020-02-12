@@ -1,10 +1,10 @@
-$NetBSD: patch-target_i386_nvmm-all.c,v 1.1 2020/02/06 16:46:17 kamil Exp $
+$NetBSD: patch-target_i386_nvmm-all.c,v 1.3 2020/02/06 23:23:21 kamil Exp $
 
 Add NVMM support.
 
---- target/i386/nvmm-all.c.orig	2020-02-06 16:25:13.969936459 +0000
+--- target/i386/nvmm-all.c.orig	2020-02-06 23:03:06.140694264 +0000
 +++ target/i386/nvmm-all.c
-@@ -0,0 +1,1221 @@
+@@ -0,0 +1,1226 @@
 +/*
 + * Copyright (c) 2018-2019 Maxime Villard, All rights reserved.
 + *
@@ -22,6 +22,7 @@ Add NVMM support.
 +#include "strings.h"
 +#include "sysemu/accel.h"
 +#include "sysemu/nvmm.h"
++#include "sysemu/runstate.h"
 +#include "sysemu/sysemu.h"
 +#include "sysemu/cpus.h"
 +#include "qemu/main-loop.h"
@@ -110,6 +111,7 @@ Add NVMM support.
 +    state->gprs[NVMM_X64_GPR_RBP] = env->regs[R_EBP];
 +    state->gprs[NVMM_X64_GPR_RSI] = env->regs[R_ESI];
 +    state->gprs[NVMM_X64_GPR_RDI] = env->regs[R_EDI];
++#ifdef TARGET_X86_64
 +    state->gprs[NVMM_X64_GPR_R8]  = env->regs[R_R8];
 +    state->gprs[NVMM_X64_GPR_R9]  = env->regs[R_R9];
 +    state->gprs[NVMM_X64_GPR_R10] = env->regs[R_R10];
@@ -118,6 +120,7 @@ Add NVMM support.
 +    state->gprs[NVMM_X64_GPR_R13] = env->regs[R_R13];
 +    state->gprs[NVMM_X64_GPR_R14] = env->regs[R_R14];
 +    state->gprs[NVMM_X64_GPR_R15] = env->regs[R_R15];
++#endif
 +
 +    /* RIP and RFLAGS. */
 +    state->gprs[NVMM_X64_GPR_RIP] = env->eip;
@@ -167,7 +170,7 @@ Add NVMM support.
 +    state->fpu.fx_mxcsr_mask = 0x0000FFFF;
 +    assert(sizeof(state->fpu.fx_87_ac) == sizeof(env->fpregs));
 +    memcpy(state->fpu.fx_87_ac, env->fpregs, sizeof(env->fpregs));
-+    for (i = 0; i < 16; i++) {
++    for (i = 0; i < CPU_NB_REGS; i++) {
 +        memcpy(&state->fpu.fx_xmm[i].xmm_bytes[0],
 +            &env->xmm_regs[i].ZMM_Q(0), 8);
 +        memcpy(&state->fpu.fx_xmm[i].xmm_bytes[8],
@@ -260,6 +263,7 @@ Add NVMM support.
 +    env->regs[R_EBP] = state->gprs[NVMM_X64_GPR_RBP];
 +    env->regs[R_ESI] = state->gprs[NVMM_X64_GPR_RSI];
 +    env->regs[R_EDI] = state->gprs[NVMM_X64_GPR_RDI];
++#ifdef TARGET_X86_64
 +    env->regs[R_R8]  = state->gprs[NVMM_X64_GPR_R8];
 +    env->regs[R_R9]  = state->gprs[NVMM_X64_GPR_R9];
 +    env->regs[R_R10] = state->gprs[NVMM_X64_GPR_R10];
@@ -268,6 +272,7 @@ Add NVMM support.
 +    env->regs[R_R13] = state->gprs[NVMM_X64_GPR_R13];
 +    env->regs[R_R14] = state->gprs[NVMM_X64_GPR_R14];
 +    env->regs[R_R15] = state->gprs[NVMM_X64_GPR_R15];
++#endif
 +
 +    /* RIP and RFLAGS. */
 +    env->eip = state->gprs[NVMM_X64_GPR_RIP];
@@ -320,7 +325,7 @@ Add NVMM support.
 +    env->mxcsr = state->fpu.fx_mxcsr;
 +    assert(sizeof(state->fpu.fx_87_ac) == sizeof(env->fpregs));
 +    memcpy(env->fpregs, state->fpu.fx_87_ac, sizeof(env->fpregs));
-+    for (i = 0; i < 16; i++) {
++    for (i = 0; i < CPU_NB_REGS; i++) {
 +        memcpy(&env->xmm_regs[i].ZMM_Q(0),
 +            &state->fpu.fx_xmm[i].xmm_bytes[0], 8);
 +        memcpy(&env->xmm_regs[i].ZMM_Q(1),

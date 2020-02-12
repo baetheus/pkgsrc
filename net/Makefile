@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1302 2020/01/20 01:32:17 nia Exp $
+# $NetBSD: Makefile,v 1.1304 2020/02/08 15:22:32 nia Exp $
 #
 
 COMMENT=	Networking tools
@@ -361,7 +361,6 @@ SUBDIR+=	mldonkey-gui
 SUBDIR+=	modpcap
 SUBDIR+=	mono-nat
 SUBDIR+=	monotorrent
-SUBDIR+=	monsoon
 SUBDIR+=	mosh
 SUBDIR+=	mosquitto
 SUBDIR+=	mouse-pppoe
@@ -398,6 +397,7 @@ SUBDIR+=	nagstamon
 SUBDIR+=	nam
 SUBDIR+=	nanomsg
 SUBDIR+=	nanomsgxx
+SUBDIR+=	nanotodon
 SUBDIR+=	nap
 SUBDIR+=	napshare
 SUBDIR+=	nasd
