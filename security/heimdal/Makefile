@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.135 2020/01/18 21:48:21 jperkin Exp $
+# $NetBSD: Makefile,v 1.137 2020/02/13 21:12:21 rillig Exp $
 
 DISTNAME=	heimdal-1.5.3
 PKGREVISION=	22
@@ -16,8 +16,6 @@ CONFLICTS+=	openafs-[0-9]*
 CONFLICTS+=	gss-[0-9]*
 CONFLICTS+=	kth-krb4-[0-9]*
 
-MAKE_JOBS_SAFE=	no
-
 USE_LIBTOOL=		yes
 USE_TOOLS+=		bison flex:run
 PKGCONFIG_OVERRIDE+=	tools/heimdal-gssapi.pc.in
@@ -29,6 +27,7 @@ MAKE_ENV+=		INSTALL_CATPAGES=no
 HEIMDAL_HDB_DIR=	${VARBASE}/heimdal
 
 GNU_CONFIGURE=		yes
+GNU_CONFIGURE_STRICT=	no # has multiple configure scripts
 CONFIGURE_ARGS+=	--enable-kcm
 CONFIGURE_ARGS+=	--enable-pthread-support
 CONFIGURE_ARGS+=	--includedir=${PREFIX}/include/krb5
