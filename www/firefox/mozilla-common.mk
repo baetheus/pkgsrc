@@ -1,4 +1,4 @@
-# $NetBSD: mozilla-common.mk,v 1.149 2020/02/12 16:36:50 ryoon Exp $
+# $NetBSD: mozilla-common.mk,v 1.151 2020/02/13 04:36:02 gutteridge Exp $
 #
 # common Makefile fragment for mozilla packages based on gecko 2.0.
 #
@@ -23,7 +23,7 @@ USE_TOOLS+=		pkg-config perl gmake autoconf213 unzip zip
 USE_LANGUAGES+=		c99 gnu++14
 UNLIMIT_RESOURCES+=	datasize
 
-TOOL_DEPENDS+=		cbindgen>=0.9.1:../../devel/cbindgen
+TOOL_DEPENDS+=		cbindgen>=0.12.0:../../devel/cbindgen
 .if ${MACHINE_ARCH} == "sparc64"
 CONFIGURE_ARGS+=	--disable-nodejs
 .else
@@ -227,7 +227,7 @@ BUILDLINK_DEPMETHOD.clang=	build
 BUILDLINK_API_DEPENDS.clang+=	clang>=6.0.1nb1
 .include "../../lang/clang/buildlink3.mk"
 BUILDLINK_DEPMETHOD.rust=	build
-BUILDLINK_API_DEPENDS.rust+=	rust>=1.37.0
+BUILDLINK_API_DEPENDS.rust+=	rust>=1.39.0
 .include "../../lang/rust/buildlink3.mk"
 # webrtc option requires internal libvpx
 #BUILDLINK_API_DEPENDS.libvpx+=	libvpx>=1.3.0

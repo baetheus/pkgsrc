@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.199 2020/01/19 00:50:30 nia Exp $
+# $NetBSD: Makefile,v 1.201 2020/02/13 03:21:54 gutteridge Exp $
 #
 
 COMMENT=	Editors
@@ -41,6 +41,8 @@ SUBDIR+=	emacs26
 SUBDIR+=	emacs26-nox11
 SUBDIR+=	ex
 SUBDIR+=	fe
+SUBDIR+=	feathernotes
+SUBDIR+=	featherpad
 SUBDIR+=	gate
 SUBDIR+=	gconf-editor
 SUBDIR+=	gedit
